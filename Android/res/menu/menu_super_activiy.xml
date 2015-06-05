@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/menu_group_connected"
+        android:enabled="false"
+        android:visible="false">
+        <item
+            android:id="@+id/menu_info_bar"
+            android:title="@string/menu_info_bar"
+            app:showAsAction="always"
+            app:actionProviderClass="com.playuav.android.widgets.actionProviders.InfoBarActionProvider"
+            />
+
+        <item
+            android:id="@+id/menu_send_mission"
+            app:showAsAction="never"
+            android:title="@string/send_mission"/>
+        <item
+            android:id="@+id/menu_load_mission"
+            app:showAsAction="never"
+            android:title="@string/load_mission"/>
+        
+        <item
+            android:id="@+id/menu_triggerCamera"
+            app:showAsAction="never"
+            android:title="Picture"/>
+        <item
+            android:id="@+id/menu_epm_release"
+            app:showAsAction="never"
+            android:title="Release"/>
+        <item
+            android:id="@+id/menu_epm_grab"
+            app:showAsAction="never"
+            android:title="Grab"/>
+    </group>
+
+    <item
+        android:id="@+id/menu_connect"
+        app:showAsAction="never"
+        android:title="@string/menu_disconnect"/>
+
+</menu>
