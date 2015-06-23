@@ -43,6 +43,9 @@ public class ConnectionType {
      * Key used to retrieve the tcp server port from the connection parameter bundle
      */
     public static final String EXTRA_TCP_SERVER_PORT = "extra_tcp_server_port";
+
+    public static final String EXTRA_TCP_SERVER_LOGIN_USER = "xxxx,xxx";
+    public static final String EXTRA_TCP_SERVER_PEER = "xxxxx,xxx";
     /**
      * Default value for the tcp server port.
      */

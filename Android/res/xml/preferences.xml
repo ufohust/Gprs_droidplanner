@@ -200,6 +200,16 @@
                         android:inputType="number"
                         android:key="@string/pref_server_port_key"
                         android:title="@string/pref_server_port" />
+					<EditTextPreference
+                        android:defaultValue="xxx.xxx"
+                        android:gravity="center"
+                        android:key="@string/pref_server_login_key"
+                        android:title="@string/pref_server_login" />
+					<EditTextPreference
+                        android:defaultValue="xxxx,xxx"
+                        android:gravity="center"
+                        android:key="@string/pref_server_peer_key"
+                        android:title="@string/pref_server_peer" />
                 </PreferenceCategory>
                 <PreferenceCategory
                     android:key="pref_server_udp"

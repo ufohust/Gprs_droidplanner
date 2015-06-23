@@ -46,7 +46,9 @@ public class DroidPlannerPrefs {
     private static final String DEFAULT_USB_BAUD_RATE = "57600";
     private static final String DEFAULT_TCP_SERVER_IP = "192.168.40.100";
     private static final String DEFAULT_TCP_SERVER_PORT = "5763";
-    private static final String DEFAULT_UDP_SERVER_PORT = "14550";
+	private static final String DEFAULT_TCP_SERVER_LOGIN = "xxxx,xxx";
+	private static final String DEFAULT_TCP_SERVER_PEER = "xxxxx,xxx";
+	private static final String DEFAULT_UDP_SERVER_PORT = "14550";
 
     // Public for legacy usage
 	public SharedPreferences prefs;
@@ -146,7 +148,7 @@ public class DroidPlannerPrefs {
      */
     public int getConnectionParameterType(){
         return Integer.parseInt(prefs.getString(context.getString(R.string
-                .pref_connection_type_key), DEFAULT_CONNECTION_TYPE));
+				.pref_connection_type_key), DEFAULT_CONNECTION_TYPE));
     }
 
     public void setUsbBaudRate(int baudRate){
@@ -156,16 +158,17 @@ public class DroidPlannerPrefs {
 
     public int getUsbBaudRate(){
         return Integer.parseInt(prefs.getString(context.getString(R.string.pref_baud_type_key),
-                DEFAULT_USB_BAUD_RATE));
+				DEFAULT_USB_BAUD_RATE));
     }
 
     public void setTcpServerIp(String serverIp){
         prefs.edit().putString(context.getString(R.string.pref_server_ip_key), serverIp).apply();
     }
 
+
     public String getTcpServerIp(){
         return prefs.getString(context.getString(R.string.pref_server_ip_key),
-                DEFAULT_TCP_SERVER_IP);
+				DEFAULT_TCP_SERVER_IP);
     }
 
     public void setTcpServerPort(int serverPort){
@@ -175,8 +178,26 @@ public class DroidPlannerPrefs {
 
     public int getTcpServerPort(){
         return Integer.parseInt(prefs.getString(context.getString(R.string.pref_server_port_key),
-                DEFAULT_TCP_SERVER_PORT));
+				DEFAULT_TCP_SERVER_PORT));
     }
+
+	public void setTcpServerLogin(String serverLogin){
+		prefs.edit().putString(context.getString(R.string.pref_server_login_key), serverLogin).apply();
+	}
+
+	public String getTcpServerLogin(){
+		return prefs.getString(context.getString(R.string.pref_server_login_key),
+				DEFAULT_TCP_SERVER_LOGIN);
+	}
+
+	public void setTcpServerPeer(String serverPeer){
+		prefs.edit().putString(context.getString(R.string.pref_server_peer_key), serverPeer).apply();
+	}
+
+	public String getTcpServerPeer(){
+		return prefs.getString(context.getString(R.string.pref_server_peer_key),
+				DEFAULT_TCP_SERVER_PEER);
+	}
 
     public void setUdpServerPort(int serverPort){
         prefs.edit().putString(context.getString(R.string.pref_udp_server_port_key),

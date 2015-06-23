@@ -272,6 +272,9 @@ public class DroidPlannerApp extends Application implements DroneListener, Servi
             case ConnectionType.TYPE_TCP:
                 extraParams.putString(ConnectionType.EXTRA_TCP_SERVER_IP, dpPrefs.getTcpServerIp());
                 extraParams.putInt(ConnectionType.EXTRA_TCP_SERVER_PORT, dpPrefs.getTcpServerPort());
+                extraParams.putString(ConnectionType.EXTRA_TCP_SERVER_LOGIN_USER, dpPrefs.getTcpServerLogin());
+                extraParams.putString(ConnectionType.EXTRA_TCP_SERVER_PEER, dpPrefs.getTcpServerPeer());
+
                 connParams = new ConnectionParameter(connectionType, extraParams, rates,
                         droneSharePrefs);
                 break;

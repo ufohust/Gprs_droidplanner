@@ -1,5 +1,9 @@
 package org.droidplanner.core.MAVLink.connection;
 
+import android.app.AlertDialog;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -19,6 +23,8 @@ public abstract class TcpConnection extends MavLinkConnection {
 	private BufferedInputStream mavIn;
 
 	private String serverIP;
+	private String serverLogin;
+	private String serverPeer;
 	private int serverPort;
 
 	@Override
@@ -43,12 +49,16 @@ public abstract class TcpConnection extends MavLinkConnection {
 	public final void loadPreferences() {
 		serverIP = loadServerIP();
 		serverPort = loadServerPort();
+		serverLogin = loadServerLogin();
+		serverPeer = loadServerPeer();
+
 	}
 
 	protected abstract int loadServerPort();
 
 	protected abstract String loadServerIP();
-
+	protected abstract String loadServerLogin();
+	protected abstract String loadServerPeer();
 	@Override
 	public final void closeConnection() throws IOException {
 		if (socket != null)
@@ -61,6 +71,55 @@ public abstract class TcpConnection extends MavLinkConnection {
 		socket.connect(new InetSocketAddress(serverAddr, serverPort), CONNECTION_TIMEOUT);
 		mavOut = new BufferedOutputStream((socket.getOutputStream()));
 		mavIn = new BufferedInputStream(socket.getInputStream());
+
+		//added by mike
+		String login="login:"+serverLogin;
+
+		sendBuffer(login.getBytes());
+		Log.d("Login", login);
+
+		try{
+
+			Thread.sleep(300,0);
+		}catch (InterruptedException e){
+			e.printStackTrace();
+		}
+
+		final byte[] readBuffer1 = new byte[200];
+		readDataBlock(readBuffer1);
+		String str=new String(readBuffer1,"ISO-8859-1");
+
+		Log.d("Login", str);
+		if(str.contains("OK")) {
+		//	new  AlertDialog.Builder(getApplicationContext())
+
+		//			.setTitle("标题" )
+
+		//			.setMessage("简单消息框" )
+
+		//			.setPositiveButton("确定",  null )
+
+		//			.show();
+		//Toast.makeText(SuperUI.this, "Connect Successfully!", Toast.LENGTH_LONG).show();
+		}
+
+		String peer = "peer:"+serverPeer;//"peer:52420,420";
+		sendBuffer(peer.getBytes());
+		Log.d("Login", peer);
+		try{
+
+			Thread.sleep(300,0);
+		}catch (InterruptedException e){
+			e.printStackTrace();
+		}
+
+		readDataBlock(readBuffer1);
+
+		String str2=new String(readBuffer1,"ISO-8859-1");
+		Log.d("Login", str2);
+		str2.contains("OK");
+		//add by mike
+
 	}
 
 	@Override

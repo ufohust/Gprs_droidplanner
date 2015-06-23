@@ -123,9 +123,13 @@ public class DroidPlannerService extends Service {
                 case ConnectionType.TYPE_TCP:
                     //Retrieve the server ip and port
                     final String tcpServerIp = paramsBundle.getString(ConnectionType.EXTRA_TCP_SERVER_IP);
+                    final String tcpServerLogin = paramsBundle.getString(ConnectionType.EXTRA_TCP_SERVER_LOGIN_USER);
+                    final String tcpServerPeer = paramsBundle.getString(ConnectionType.EXTRA_TCP_SERVER_PEER);
+
+
                     final int tcpServerPort = paramsBundle.getInt(ConnectionType
                             .EXTRA_TCP_SERVER_PORT, ConnectionType.DEFAULT_TCP_SERVER_PORT);
-                    conn = new AndroidTcpConnection(getApplicationContext(), tcpServerIp, tcpServerPort);
+                    conn = new AndroidTcpConnection(getApplicationContext(), tcpServerIp, tcpServerPort,tcpServerLogin,tcpServerPeer);
                     Log.d(TAG, "Connecting over tcp.");
                     break;
 

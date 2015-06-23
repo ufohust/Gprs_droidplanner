@@ -78,48 +78,12 @@ public abstract class MavLinkConnection {
 			loadPreferences();
 
 			try {
+				//TcpLoginWin login_win = new TcpLoginWin();
 				// Open the connection
 				openConnection();
 				mConnectionStatus.set(MAVLINK_CONNECTED);
 
 
-					String login="login:b,80";
-
-
-
-
-					sendBuffer(login.getBytes());
-				Log.d(TAG, login);
-
-				try{
-
-					Thread.sleep(500,0);
-				}catch (InterruptedException e){
-					e.printStackTrace();
-				}
-
-				final byte[] readBuffer1 = new byte[READ_BUFFER_SIZE];
-				readDataBlock(readBuffer1);
-				String str=new String(readBuffer1,"ISO-8859-1");
-
-				 Log.d(TAG, str);
-				str.contains("OK");
-
-				String peer = "peer:52420,420";
-				sendBuffer(peer.getBytes());
-				Log.d(TAG, peer);
-				try{
-
-					Thread.sleep(500,0);
-				}catch (InterruptedException e){
-					e.printStackTrace();
-				}
-
-				readDataBlock(readBuffer1);
-
-				 String str2=new String(readBuffer1,"ISO-8859-1");
-				Log.d(TAG, str2);
-				str2.contains("OK");
 
 				reportConnect();
 
