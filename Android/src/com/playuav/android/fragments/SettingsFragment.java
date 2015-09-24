@@ -340,7 +340,7 @@ public class SettingsFragment extends PreferenceFragment implements
         mDefaultSummaryPrefs.add(getString(R.string.pref_server_port_key));
         mDefaultSummaryPrefs.add(getString(R.string.pref_server_ip_key));
         mDefaultSummaryPrefs.add(getString(R.string.pref_server_login_key));
-        mDefaultSummaryPrefs.add(getString(R.string.pref_server_peer_key));
+        //mDefaultSummaryPrefs.add(getString(R.string.pref_server_peer_key));
         mDefaultSummaryPrefs.add(getString(R.string.pref_udp_server_port_key));
         mDefaultSummaryPrefs.add(getString(R.string.pref_bluetooth_device_address_key));
         mDefaultSummaryPrefs.add(getString(R.string.pref_rc_quickmode_left_key));

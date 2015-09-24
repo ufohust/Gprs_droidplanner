@@ -99,7 +99,7 @@
     <string name="pref_server_ip">服务器IP</string>
     <string name="pref_server_port">服务器端口</string>
     <string name="pref_server_login">服务器登录</string>
-    <string name="pref_server_peer">服务器监听</string>
+ <!--   <string name="pref_server_peer">服务器监听</string> -->
     <string name="pref_server_udp">UDP连接</string>
     <string name="pref_udp_server_port">UDP服务器端口</string>
     <string name="about">关于</string>

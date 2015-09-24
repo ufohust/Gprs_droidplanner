@@ -24,7 +24,7 @@ public abstract class TcpConnection extends MavLinkConnection {
 
 	private String serverIP;
 	private String serverLogin;
-	private String serverPeer;
+	//private String serverPeer;
 	private int serverPort;
 
 	@Override
@@ -50,7 +50,7 @@ public abstract class TcpConnection extends MavLinkConnection {
 		serverIP = loadServerIP();
 		serverPort = loadServerPort();
 		serverLogin = loadServerLogin();
-		serverPeer = loadServerPeer();
+		//serverPeer = loadServerPeer();
 
 	}
 
@@ -58,7 +58,7 @@ public abstract class TcpConnection extends MavLinkConnection {
 
 	protected abstract String loadServerIP();
 	protected abstract String loadServerLogin();
-	protected abstract String loadServerPeer();
+	//protected abstract String loadServerPeer();
 	@Override
 	public final void closeConnection() throws IOException {
 		if (socket != null)
@@ -90,34 +90,25 @@ public abstract class TcpConnection extends MavLinkConnection {
 		String str=new String(readBuffer1,"ISO-8859-1");
 
 		Log.d("Login", str);
-		if(str.contains("OK")) {
-		//	new  AlertDialog.Builder(getApplicationContext())
+		if(str.contains("$&@&()login success")) {
 
-		//			.setTitle("标题" )
-
-		//			.setMessage("简单消息框" )
-
-		//			.setPositiveButton("确定",  null )
-
-		//			.show();
-		//Toast.makeText(SuperUI.this, "Connect Successfully!", Toast.LENGTH_LONG).show();
 		}
 
-		String peer = "peer:"+serverPeer;//"peer:52420,420";
-		sendBuffer(peer.getBytes());
-		Log.d("Login", peer);
-		try{
+		//String peer = "peer:"+serverPeer;//"peer:52420,420";
+		//sendBuffer(peer.getBytes());
+		//Log.d("Login", peer);
+		//try{
 
-			Thread.sleep(300,0);
-		}catch (InterruptedException e){
-			e.printStackTrace();
-		}
+		//	Thread.sleep(300,0);
+		//}catch (InterruptedException e){
+		//	e.printStackTrace();
+		//}
 
-		readDataBlock(readBuffer1);
+		//readDataBlock(readBuffer1);
 
-		String str2=new String(readBuffer1,"ISO-8859-1");
-		Log.d("Login", str2);
-		str2.contains("OK");
+		//String str2=new String(readBuffer1,"ISO-8859-1");
+		//Log.d("Login", str2);
+		//str2.contains("OK");
 		//add by mike
 
 	}

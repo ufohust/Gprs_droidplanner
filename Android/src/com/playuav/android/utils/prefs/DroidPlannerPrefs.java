@@ -47,7 +47,7 @@ public class DroidPlannerPrefs {
     private static final String DEFAULT_TCP_SERVER_IP = "192.168.40.100";
     private static final String DEFAULT_TCP_SERVER_PORT = "5763";
 	private static final String DEFAULT_TCP_SERVER_LOGIN = "xxxx,xxx";
-	private static final String DEFAULT_TCP_SERVER_PEER = "xxxxx,xxx";
+	//private static final String DEFAULT_TCP_SERVER_PEER = "xxxxx,xxx";
 	private static final String DEFAULT_UDP_SERVER_PORT = "14550";
 
     // Public for legacy usage
@@ -190,14 +190,14 @@ public class DroidPlannerPrefs {
 				DEFAULT_TCP_SERVER_LOGIN);
 	}
 
-	public void setTcpServerPeer(String serverPeer){
-		prefs.edit().putString(context.getString(R.string.pref_server_peer_key), serverPeer).apply();
-	}
+	//public void setTcpServerPeer(String serverPeer){
+	//	prefs.edit().putString(context.getString(R.string.pref_server_peer_key), //serverPeer).apply();
+	//}
 
-	public String getTcpServerPeer(){
-		return prefs.getString(context.getString(R.string.pref_server_peer_key),
-				DEFAULT_TCP_SERVER_PEER);
-	}
+	//public String getTcpServerPeer(){
+	//	return prefs.getString(context.getString(R.string.pref_server_peer_key),
+	//			DEFAULT_TCP_SERVER_PEER);
+	//}
 
     public void setUdpServerPort(int serverPort){
         prefs.edit().putString(context.getString(R.string.pref_udp_server_port_key),

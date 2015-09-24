@@ -13,14 +13,14 @@ public class AndroidTcpConnection extends AndroidMavLinkConnection {
 	private final TcpConnection mConnectionImpl;
     private final String serverIp;
 	private final String serverLogin;
-	private final String serverPeer;
+	//private final String serverPeer;
     private final int serverPort;
 
-	public AndroidTcpConnection(Context context, String tcpServerIp, int tcpServerPort,String tcpServerLogin,String tcpServerPeer) {
+	public AndroidTcpConnection(Context context, String tcpServerIp, int tcpServerPort,String tcpServerLogin/*,String tcpServerPeer*/) {
 		super(context);
 		this.serverIp = tcpServerIp;
 		this.serverLogin = tcpServerLogin;
-		this.serverPeer = tcpServerPeer;
+		//this.serverPeer = tcpServerPeer;
         this.serverPort = tcpServerPort;
 
 		mConnectionImpl = new TcpConnection() {
@@ -37,11 +37,11 @@ public class AndroidTcpConnection extends AndroidMavLinkConnection {
 			protected String loadServerLogin() {
 				return serverLogin;
 			}
-			@Override
-			protected String loadServerPeer() {
+			//@Override
+			//protected String loadServerPeer() {
 
-				return serverPeer;
-			}
+			//	return serverPeer;
+			//}
 
 			@Override
 			protected Logger initLogger() {
