@@ -73,7 +73,7 @@ public abstract class TcpConnection extends MavLinkConnection {
 		mavIn = new BufferedInputStream(socket.getInputStream());
 
 		//added by mike
-		String login="login:"+serverLogin;
+		String login="$&@&()Glogin:"+serverLogin;
 
 		sendBuffer(login.getBytes());
 		Log.d("Login", login);
